@@ -262,7 +262,7 @@ nav .navlinks li a:hover {
     transform-style: preserve-3d;
 }
 
-.skill-card.flipped .skill-inner {
+.skill-card:hover .skill-inner {
     transform: rotateY(180deg);
 }
 

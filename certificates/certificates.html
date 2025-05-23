@@ -12,11 +12,11 @@
         <div class="wrapper">
             <header>
                 <div class="logo">
-    <a href="../Home/index.html" class="logo-link">
-        <i class="fa-solid fa-b animated-b"></i>
-        <div class="logo-text">Betelhem Hiluf</div>
-    </a>
-</div>
+                    <a href="../Home/index.html" class="logo-link">
+                        <i class="fa-solid fa-b animated-b"></i>
+                        <div class="logo-text">Betelhem Hiluf</div>
+                    </a>
+                </div>
                 <div class="theme-toggle">
                     <i class="fa-solid fa-sun" id="theme-icon"></i>
                 </div>
@@ -35,39 +35,52 @@
             </header>
             <div class="certificates-content">
                 <h2>My Certificates</h2>
-                <div class="certificates-list animated-section">
-                    <div class="certificate-card">
-                        <div class="certificate-inner">
-                            <div class="certificate-front">Front-End Development</div>
-                            <div class="certificate-back">Completed a comprehensive course in Front-End Development, covering HTML, CSS, and JavaScript.</div>
+                <div class="certificates-grid">
+                    <div class="certificate-card" data-title="Front-End Development" data-description="Completed a comprehensive course in Front-End Development, covering HTML, CSS, and JavaScript.">
+                        <img src="https://via.placeholder.com/300x200?text=Front-End+Certificate" alt="Front-End Development Certificate">
+                        <div class="certificate-overlay">
+                            <h3>Front-End Development</h3>
+                            <p>Click to view details</p>
                         </div>
                     </div>
-                    <div class="certificate-card">
-                        <div class="certificate-inner">
-                            <div class="certificate-front">React Basics</div>
-                            <div class="certificate-back">Mastered the fundamentals of React, including components, state, and props.</div>
+                    <div class="certificate-card" data-title="React Basics" data-description="Mastered the fundamentals of React, including components, state, and props.">
+                        <img src="https://via.placeholder.com/300x200?text=React+Certificate" alt="React Basics Certificate">
+                        <div class="certificate-overlay">
+                            <h3>React Basics</h3>
+                            <p>Click to view details</p>
                         </div>
                     </div>
-                    <div class="certificate-card">
-                        <div class="certificate-inner">
-                            <div class="certificate-front">UI/UX Design</div>
-                            <div class="certificate-back">Learned the principles of UI/UX design, focusing on user-centered design and prototyping.</div>
+                    <div class="certificate-card" data-title="UI/UX Design" data-description="Learned the principles of UI/UX design, focusing on user-centered design and prototyping.">
+                        <img src="https://via.placeholder.com/300x200?text=UIUX+Certificate" alt="UI/UX Design Certificate">
+                        <div class="certificate-overlay">
+                            <h3>UI/UX Design</h3>
+                            <p>Click to view details</p>
                         </div>
                     </div>
-                    <div class="certificate-card">
-                        <div class="certificate-inner">
-                            <div class="certificate-front">JavaScript Advanced</div>
-                            <div class="certificate-back">Deep dive into advanced JavaScript concepts like closures, promises, and async/await.</div>
+                    <div class="certificate-card" data-title="JavaScript Advanced" data-description="Deep dive into advanced JavaScript concepts like closures, promises, and async/await.">
+                        <img src="https://via.placeholder.com/300x200?text=JS+Advanced+Certificate" alt="JavaScript Advanced Certificate">
+                        <div class="certificate-overlay">
+                            <h3>JavaScript Advanced</h3>
+                            <p>Click to view details</p>
                         </div>
                     </div>
-                    <div class="certificate-card">
-                        <div class="certificate-inner">
-                            <div class="certificate-front">Web Accessibility</div>
-                            <div class="certificate-back">Trained in making websites accessible, following WCAG guidelines and best practices.</div>
+                    <div class="certificate-card" data-title="Web Accessibility" data-description="Trained in making websites accessible, following WCAG guidelines and best practices.">
+                        <img src="https://via.placeholder.com/300x200?text=Accessibility+Certificate" alt="Web Accessibility Certificate">
+                        <div class="certificate-overlay">
+                            <h3>Web Accessibility</h3>
+                            <p>Click to view details</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="modal" id="certificate-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img src="" alt="Certificate" class="modal-image">
+            <h3 class="modal-title"></h3>
+            <p class="modal-description"></p>
         </div>
     </div>
     <footer>
@@ -76,5 +89,6 @@
         </div>
     </footer>
     <script src="../Home/index.js"></script>
+    <script src="certificates.js"></script>
 </body>
 </html>
