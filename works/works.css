@@ -123,7 +123,7 @@ nav .navlinks li a:hover {
 .theme-toggle {
     cursor: pointer;
     padding: 10px;
-    margin-right: 20px; /* Space between theme toggle and nav */
+    margin-right: 20px;
     transition: color 0.3s ease;
 }
 
@@ -134,12 +134,12 @@ nav .navlinks li a:hover {
 
 @media (max-width: 930px) {
     header {
-        justify-content: flex-start; /* Align logo and theme-toggle to the left */
+        justify-content: flex-start;
     }
 
     .theme-toggle {
-        margin-right: 60px; /* Extra space to avoid overlap with fixed togglebtn */
-        z-index: 15; /* Ensure it stays below togglebtn */
+        margin-right: 60px;
+        z-index: 15;
     }
 
     nav .togglebtn {
@@ -215,6 +215,7 @@ nav .navlinks li a:hover {
 .work-item:nth-child(1) { animation-delay: 0.2s; }
 .work-item:nth-child(2) { animation-delay: 0.4s; }
 .work-item:nth-child(3) { animation-delay: 0.6s; }
+.work-item:nth-child(4) { animation-delay: 0.8s; }
 
 @keyframes flipIn {
     0% {
@@ -245,6 +246,19 @@ nav .navlinks li a:hover {
     transform: scale(1.05);
 }
 
+.work-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover .work-image {
+    transform: scale(1.05);
+}
+
 .work-item h3 {
     color: #e5e5e5;
     font-size: 1.2rem;
@@ -272,7 +286,7 @@ nav .navlinks li a:hover {
 }
 
 .view-project-btn {
-    color: #007ced; /* Set default blue for View Project button text */
+    color: #007ced;
 }
 
 .work-item .btn:hover {
@@ -281,98 +295,7 @@ nav .navlinks li a:hover {
 }
 
 .view-project-btn:hover {
-    color: #e5e5e5; /* Retain light gray on hover for contrast */
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 10;
-}
-
-.modal.show {
-    display: block;
-}
-
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 90%;
-    max-width: 500px;
-    transition: background-color 0.3s ease;
-}
-
-#modalVideo {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5rem;
-    cursor: pointer;
     color: #e5e5e5;
-    transition: color 0.3s ease;
-}
-
-.close-modal:hover {
-    color: #007ced;
-}
-
-.modal-content h3 {
-    color: #007ced;
-    margin-bottom: 15px;
-    transition: color 0.3s ease;
-}
-
-.modal-content p {
-    color: #e5e5e5;
-    margin-bottom: 20px;
-    transition: color 0.3s ease;
-}
-
-#modalLink.btn {
-    color: #007ced; /* Default blue for modal button text */
-}
-
-#modalLink.btn:hover {
-    border-color: #007ced;
-    color: #e5e5e5; /* Light gray on hover for contrast */
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding-top: 2rem;
-    }
-
-    .works-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .works-grid {
-        grid-template-columns: 1fr;
-    }
-
-    #modalVideo {
-        height: 150px;
-    }
 }
 
 footer {
@@ -389,7 +312,6 @@ footer p {
     transition: color 0.3s ease;
 }
 
-/* Theme Toggle Styling */
 [data-theme="light"] .hero-header {
     background: #fff;
 }
@@ -449,7 +371,7 @@ footer p {
 }
 
 [data-theme="light"] .view-project-btn {
-    color: #005bb5; /* Set default blue for View Project button text in light mode */
+    color: #005bb5;
 }
 
 [data-theme="light"] .work-item .btn:hover {
@@ -458,36 +380,7 @@ footer p {
 }
 
 [data-theme="light"] .view-project-btn:hover {
-    color: #222; /* Retain dark gray on hover for contrast in light mode */
-}
-
-[data-theme="light"] .modal-content {
-    background: #fff;
-}
-
-[data-theme="light"] .close-modal {
     color: #222;
-}
-
-[data-theme="light"] .close-modal:hover {
-    color: #005bb5;
-}
-
-[data-theme="light"] .modal-content h3 {
-    color: #005bb5;
-}
-
-[data-theme="light"] .modal-content p {
-    color: #222;
-}
-
-[data-theme="light"] #modalLink.btn {
-    color: #005bb5; /* Default blue for modal button text in light mode */
-}
-
-[data-theme="light"] #modalLink.btn:hover {
-    border-color: #005bb5;
-    color: #222; /* Dark gray on hover for contrast in light mode */
 }
 
 [data-theme="light"] footer {
