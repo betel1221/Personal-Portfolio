@@ -12,11 +12,11 @@
         <div class="wrapper">
             <header>
                 <div class="logo">
-    <a href="../Home/index.html" class="logo-link">
-        <i class="fa-solid fa-b animated-b"></i>
-        <div class="logo-text">Betelhem Hiluf</div>
-    </a>
-        </div>
+                    <a href="../Home/index.html" class="logo-link">
+                        <i class="fa-solid fa-b animated-b"></i>
+                        <div class="logo-text">Betelhem Hiluf</div>
+                    </a>
+                </div>
                 <div class="theme-toggle">
                     <i class="fa-solid fa-sun" id="theme-icon"></i>
                 </div>
@@ -60,9 +60,28 @@
                     </div>
                     <div class="skill-card">
                         <div class="skill-inner">
-                            <div class="skill-front">Frontend Teaching Experience.</div>
+                            <div class="skill-front">Frontend Teaching Experience</div>
                             <div class="skill-back">Conducted lecture classes on frontend development, focusing on HTML and CSS.</div>
                         </div>
+                    </div>
+                </div>
+                <h3>Events & Hackathons</h3>
+                <div class="event-gallery">
+                    <div class="event-card scroll-animate">
+                        <img src="../asset/closing-event.jpg" alt="Participated in Hackathon 2023" onerror="this.src='https://via.placeholder.com/150x90?text=Closing+Event'">
+                        <p class="event-caption">Participated in Hackathon 2023, building Library Management System using Python.</p>
+                    </div>
+                    <div class="event-card scroll-animate">
+                        <img src="../asset/opening-event.jpg" alt="Led Techtonic Tribe Event 2024" onerror="this.src='https://via.placeholder.com/150x90?text=Opening+Event'">
+                        <p class="event-caption">Led Techtonic Tribe Event 2024 as stage presenter and organizer.</p>
+                    </div>
+                    <div class="event-card scroll-animate">
+                        <img src="../asset/python-hackathon.jpg" alt="Participated in Python Hackathon 2023" onerror="this.src='https://via.placeholder.com/150x90?text=Python+Hackathon'">
+                        <p class="event-caption">Participated in Python Hackathon 2023, collaborating on a team project.</p>
+                    </div>
+                    <div class="event-card scroll-animate">
+                        <img src="../asset/closing-event1.jpg" alt="Participated in Techtonic Tribe Closing Event 2025" onerror="this.src='https://via.placeholder.com/150x90?text=Closing+Event+2025'">
+                        <p class="event-caption">Participated in Techtonic Tribe Closing Event 2025, sharing insights on internships.</p>
                     </div>
                 </div>
             </div>
@@ -74,5 +93,24 @@
         </div>
     </footer>
     <script src="../Home/index.js"></script>
+    <script>
+        // Scroll animation for event cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.scroll-animate');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                cards.forEach(card => observer.observe(card));
+            } else {
+                cards.forEach(card => card.classList.add('is-visible'));
+            }
+        });
+    </script>
 </body>
 </html>
