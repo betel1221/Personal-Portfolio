@@ -25,7 +25,7 @@
     --card-text: #222;
     --card-overlay-bg: rgba(0, 91, 181, 0.8);
     --shadow-color: rgba(0, 0, 0, 0.2);
-    --modal-bg: rgba(255, 255, 255, 0.9);
+    --modal-bg: rgba(255, 255, 0.9);
 }
 
 body {
@@ -34,7 +34,7 @@ body {
     background: var(--bg-color);
 }
 
-.about-header {
+.hero-header {
     width: 100%;
     height: auto;
     min-height: 95.6vh;
@@ -136,7 +136,6 @@ nav .navlinks li a {
     transition: color 0.3s ease;
 }
 
-nav .navlinks li a.active,
 nav .navlinks li a:hover {
     color: var(--accent-color);
 }
@@ -196,19 +195,26 @@ nav .navlinks li a:hover {
     }
 }
 
-.about-content {
+.container {
     padding-top: 4rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.about-content h2 {
+.about-content {
+    text-align: center;
+    max-width: 100%;
+}
+
+.about-content h1 {
     color: var(--accent-color);
     font-size: 2.5rem;
     margin-bottom: 2rem;
     transition: color 0.3s ease;
 }
 
-.about-content h3 {
+.about-content h2 {
     color: var(--accent-color);
     font-size: 1.8rem;
     margin: 2rem 0 1rem;
@@ -256,6 +262,24 @@ nav .navlinks li a:hover {
 
 .animated-section p:hover::after {
     width: 100%;
+}
+
+.bio p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.bio p:hover {
+    transform: none;
+    color: var(--text-color);
+}
+
+.bio p::after {
+    content: none;
 }
 
 .skills {
@@ -487,11 +511,11 @@ nav .navlinks li a:hover {
 }
 
 @media (max-width: 768px) {
-    .about-content h2 {
+    .about-content h1 {
         font-size: 2rem;
     }
 
-    .about-content h3 {
+    .about-content h2 {
         font-size: 1.5rem;
     }
 
@@ -509,7 +533,7 @@ nav .navlinks li a:hover {
     }
 
     .skill-back {
-        font-size: 0.2rem;
+        font-size: 0.7rem;
     }
 
     .events-section {
