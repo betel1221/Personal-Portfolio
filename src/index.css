@@ -7,29 +7,59 @@
   /* Emerald 600 */
   --color-accent: #34d399;
   /* Emerald 400 */
+  --color-dark-bg: #09090b;
+  /* Zinc 950 */
+  --color-dark-surface: #18181b;
+  /* Zinc 900 */
 
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --animate-spin-slow: spin-slow 12s linear infinite;
+  --animate-reverse-spin: reverse-spin 10s linear infinite;
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes reverse-spin {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
-    @apply bg-white text-slate-900 transition-colors duration-300 antialiased selection:bg-primary/30 selection:text-white;
+    @apply bg-white text-slate-900 transition-colors duration-300 antialiased selection:bg-primary selection:text-white;
   }
 
   .dark body {
-    @apply bg-slate-950 text-slate-100;
+    @apply bg-dark-bg text-slate-100;
   }
 }
 
 @layer utilities {
   .glass-card {
-    @apply backdrop-blur-md bg-white/70 border border-slate-200 shadow-xl transition-all duration-300;
+    @apply backdrop-blur-xl bg-white/95 border border-slate-200 shadow-[0_8px_32px_rgba(0,0,0,0.06)] transition-all duration-300;
   }
 
   .dark .glass-card {
-    @apply bg-white/5 border-white/10 shadow-2xl;
+    @apply bg-zinc-900/60 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)];
   }
 
   .text-gradient {
@@ -38,15 +68,15 @@
 
   .animated-mesh {
     background-image:
-      radial-gradient(at 0% 0%, hsla(150, 80%, 90%, 1) 0, transparent 50%),
-      radial-gradient(at 50% 0%, hsla(160, 80%, 90%, 1) 0, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(170, 80%, 90%, 1) 0, transparent 50%);
+      radial-gradient(at 0% 0%, hsla(150, 80%, 95%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(160, 80%, 95%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(170, 80%, 95%, 1) 0, transparent 50%);
   }
 
   .dark .animated-mesh {
     background-image:
-      radial-gradient(at 0% 0%, hsla(160, 100%, 5%, 1) 0, transparent 50%),
-      radial-gradient(at 50% 0%, hsla(170, 100%, 5%, 1) 0, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(180, 100%, 5%, 1) 0, transparent 50%);
+      radial-gradient(at 0% 0%, hsla(160, 100%, 8%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(170, 100%, 8%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(180, 100%, 8%, 1) 0, transparent 50%);
   }
 }
