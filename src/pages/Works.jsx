@@ -7,6 +7,8 @@ import kuraz2 from '../assets/projects/kuraz2.png';
 import dbu1 from '../assets/projects/dbu1.png';
 import dbu2 from '../assets/projects/dbu2.png';
 import portfolio1 from '../assets/projects/portfolio1.png';
+import hospital1 from '../assets/projects/hospital1.png';
+import hospital2 from '../assets/projects/hospital2.png';
 
 const projects = [
     {
@@ -47,7 +49,7 @@ const projects = [
         tech: ["Python", "Database", "Fullstack"],
         github: "https://github.com/betel1221/Hospital-Management-System",
         link: "https://github.com/betel1221/Hospital-Management-System",
-        images: [],
+        images: [hospital1, hospital2],
     },
     {
         title: "todo-app-react",
