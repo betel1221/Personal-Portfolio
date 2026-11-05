@@ -5,20 +5,14 @@ import { motion } from 'framer-motion';
 
 const Layout = ({ children }) => {
     return (
-        <div className="relative min-h-screen bg-[#faf9fd] dark:bg-[#0b0914] font-sans text-slate-800 dark:text-slate-100 transition-colors duration-200">
+        <div className="relative min-h-screen bg-[#faf9fd] dark:bg-[#0b0914] font-sans text-slate-800 dark:text-slate-100 transition-colors duration-200 flex flex-col justify-between">
             {/* Background Mesh */}
             <div className="fixed inset-0 z-0 animated-mesh opacity-70 dark:opacity-30 pointer-events-none" />
 
             <Header />
-            <motion.main
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="relative z-10 pt-20"
-            >
+            <main className="relative z-10 pt-20 sm:pt-24 flex-grow">
                 {children}
-            </motion.main>
+            </main>
             <Footer />
         </div>
     );

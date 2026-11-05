@@ -1,5 +1,6 @@
 import React from 'react';
-import { Github, Linkedin, Instagram, Send, Code2, Brain, Cpu, Database } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Github, Linkedin, Instagram, Send, Code2, Brain, Cpu, Database, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -164,6 +165,59 @@ const Home = () => {
                             </p>
                         </div>
                     ))}
+                </div>
+            </motion.div>
+
+            {/* Quick Navigation Cards */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="mt-16 pt-10 border-t border-purple-100 dark:border-purple-500/15"
+            >
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <Link
+                        to="/about"
+                        className="group flex flex-col justify-between p-5 rounded-2xl border border-purple-100/90 dark:border-purple-500/15 bg-white/90 dark:bg-[#141026]/70 hover:border-purple-300 shadow-sm transition-all hover:scale-[1.01]"
+                    >
+                        <div>
+                            <span className="text-xs font-semibold text-purple-700 dark:text-purple-300">Background</span>
+                            <h3 className="text-base font-semibold text-slate-900 dark:text-white mt-1">About & Skills</h3>
+                            <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">Explore my journey, research focus, and technical toolkit.</p>
+                        </div>
+                        <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform">
+                            Read About Me <ArrowRight size={13} />
+                        </span>
+                    </Link>
+
+                    <Link
+                        to="/projects"
+                        className="group flex flex-col justify-between p-5 rounded-2xl border border-purple-100/90 dark:border-purple-500/15 bg-white/90 dark:bg-[#141026]/70 hover:border-purple-300 shadow-sm transition-all hover:scale-[1.01]"
+                    >
+                        <div>
+                            <span className="text-xs font-semibold text-purple-700 dark:text-purple-300">Portfolio</span>
+                            <h3 className="text-base font-semibold text-slate-900 dark:text-white mt-1">Projects & Research</h3>
+                            <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">Discover DOCtransformer-Secure, AI systems, and apps.</p>
+                        </div>
+                        <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform">
+                            View All Projects <ArrowRight size={13} />
+                        </span>
+                    </Link>
+
+                    <Link
+                        to="/contact"
+                        className="group flex flex-col justify-between p-5 rounded-2xl border border-purple-100/90 dark:border-purple-500/15 bg-white/90 dark:bg-[#141026]/70 hover:border-purple-300 shadow-sm transition-all hover:scale-[1.01]"
+                    >
+                        <div>
+                            <span className="text-xs font-semibold text-purple-700 dark:text-purple-300">Collaboration</span>
+                            <h3 className="text-base font-semibold text-slate-900 dark:text-white mt-1">Get In Touch</h3>
+                            <p className="text-xs text-slate-600 dark:text-slate-300 mt-1">Send a message or connect directly on Telegram or Email.</p>
+                        </div>
+                        <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-purple-600 dark:text-purple-400 group-hover:translate-x-1 transition-transform">
+                            Start Conversation <ArrowRight size={13} />
+                        </span>
+                    </Link>
                 </div>
             </motion.div>
             </div>

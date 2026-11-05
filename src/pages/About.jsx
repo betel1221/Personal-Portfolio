@@ -46,7 +46,7 @@ const About = () => {
     ];
 
     return (
-        <section id="about" className="pt-16 pb-12">
+        <section id="about" className="py-10 sm:py-14">
             <div className="container mx-auto px-6 lg:px-12">
                 <div className="max-w-6xl mx-auto space-y-12">
                     <div className="flex flex-col gap-10 lg:flex-row lg:items-start">
