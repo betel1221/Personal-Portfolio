@@ -80,16 +80,6 @@ const projects = [
     },
 ];
 
-const gradientMap = [
-    "from-purple-900/40 via-violet-900/30 to-indigo-950/40",
-    "from-violet-900/40 via-fuchsia-900/30 to-purple-950/40",
-    "from-purple-950/50 via-purple-900/30 to-slate-900/50",
-    "from-indigo-950/50 via-violet-900/30 to-purple-900/40",
-    "from-fuchsia-950/40 via-purple-900/30 to-violet-950/40",
-    "from-violet-950/50 via-purple-900/40 to-indigo-900/30",
-    "from-purple-900/35 via-violet-950/50 to-purple-950/40",
-];
-
 // ── Modal with multi-image carousel ──────────────────────────────────────────
 const DemoModal = ({ project, onClose }) => {
     const [current, setCurrent] = useState(0);
@@ -184,43 +174,34 @@ const Works = () => {
     const [activeModal, setActiveModal] = useState(null);
 
     return (
-        <section id="works" className="pt-20">
-            <div className="container mx-auto px-6 py-8 sm:py-16 lg:px-12">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <h2 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-                        Featured <span className="text-gradient">Projects & Research</span>
+        <section id="works" className="pt-16 pb-12">
+            <div className="container mx-auto px-6 lg:px-12">
+                <div>
+                    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
+                        Featured <span className="text-purple-600 dark:text-purple-400">Projects & Research</span>
                     </h2>
-                    <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                        A showcase of technical research in AI/ML, source code protection, and practical full-stack web applications.
+                    <p className="mt-2 text-base text-slate-600 dark:text-slate-300 max-w-2xl font-normal">
+                        A showcase of technical research in AI/ML, source code protection, and practical software applications.
                     </p>
-                </motion.div>
+                </div>
 
-                <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project, index) => {
                         const hasImages = project.images.length > 0;
                         const coverImage = hasImages ? project.images[0] : null;
 
                         return (
-                            <motion.div
+                            <div
                                 key={index}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.06, duration: 0.5 }}
-                                className={`group relative overflow-hidden rounded-[2.5rem] border ${
+                                className={`group rounded-2xl border ${
                                     project.isResearch 
-                                        ? 'border-purple-400/60 dark:border-purple-500/50 shadow-xl shadow-purple-500/10' 
-                                        : 'border-purple-100/80 dark:border-purple-500/20'
-                                } bg-white dark:bg-[#130e26]/80 p-4 transition-all hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/15`}
+                                        ? 'border-purple-300/80 dark:border-purple-500/40' 
+                                        : 'border-purple-100/90 dark:border-purple-500/15'
+                                } bg-white/90 dark:bg-[#141026]/80 p-3.5 shadow-sm transition-all hover:border-purple-300 hover:shadow-md`}
                             >
                                 {/* Thumbnail / placeholder */}
                                 <div
-                                    className={`aspect-[16/10] w-full overflow-hidden rounded-[2rem] relative ${hasImages ? 'cursor-pointer' : ''} ${!coverImage ? `bg-gradient-to-br ${gradientMap[index % gradientMap.length]}` : 'bg-slate-100 dark:bg-purple-950/30'}`}
+                                    className={`aspect-[16/10] w-full overflow-hidden rounded-xl relative ${hasImages ? 'cursor-pointer' : ''} ${!coverImage ? 'bg-purple-50/60 dark:bg-purple-950/30' : 'bg-slate-100 dark:bg-purple-950/30'}`}
                                     onClick={() => hasImages && setActiveModal(project)}
                                 >
                                     {coverImage ? (
@@ -228,43 +209,43 @@ const Works = () => {
                                             <img
                                                 src={coverImage}
                                                 alt={project.title}
-                                                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-102"
                                             />
                                             {/* Hover overlay */}
-                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                                                <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-purple-600/60 backdrop-blur-sm rounded-full p-4 scale-75 group-hover:scale-100 text-white">
-                                                    <ZoomIn size={24} />
+                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-200 flex items-center justify-center">
+                                                <div className="opacity-0 group-hover:opacity-100 transition-all duration-200 bg-white/90 text-purple-700 rounded-full p-2.5 shadow-md">
+                                                    <ZoomIn size={18} />
                                                 </div>
                                             </div>
                                             {/* Image count badge */}
                                             {project.images.length > 1 && (
-                                                <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-purple-200 text-xs font-bold px-2.5 py-1 rounded-full border border-purple-500/30">
+                                                <div className="absolute top-2.5 right-2.5 bg-black/60 text-white text-[11px] font-medium px-2 py-0.5 rounded-md">
                                                     {project.images.length} photos
                                                 </div>
                                             )}
                                         </>
                                     ) : (
-                                        <div className="h-full w-full flex flex-col items-center justify-center gap-3 p-6 text-center">
+                                        <div className="h-full w-full flex flex-col items-center justify-center gap-2 p-5 text-center">
                                             {project.isResearch ? (
                                                 <>
-                                                    <div className="w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-600 dark:text-purple-300 shadow-inner">
-                                                        <ShieldCheck size={28} />
+                                                    <div className="w-11 h-11 rounded-xl bg-purple-100/70 dark:bg-purple-900/40 border border-purple-200 dark:border-purple-500/30 flex items-center justify-center text-purple-700 dark:text-purple-300">
+                                                        <ShieldCheck size={22} />
                                                     </div>
                                                     <div>
-                                                        <span className="text-xs font-bold text-purple-700 dark:text-purple-300 uppercase tracking-widest block">
+                                                        <span className="text-xs font-semibold text-purple-800 dark:text-purple-200 block">
                                                             Deep Learning Research
                                                         </span>
-                                                        <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                                                        <span className="text-[11px] text-slate-500 dark:text-slate-400">
                                                             DeepObfusCode Architecture
                                                         </span>
                                                     </div>
                                                 </>
                                             ) : (
                                                 <>
-                                                    <div className="w-14 h-14 rounded-2xl bg-purple-500/10 dark:bg-purple-900/30 flex items-center justify-center text-xl font-black text-purple-600 dark:text-purple-300 border border-purple-300/30 dark:border-purple-500/30">
+                                                    <div className="w-11 h-11 rounded-xl bg-purple-100/70 dark:bg-purple-900/40 flex items-center justify-center text-base font-bold text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-500/30">
                                                         {project.title.slice(0, 2).toUpperCase()}
                                                     </div>
-                                                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 tracking-widest uppercase">Full-Stack Solution</p>
+                                                    <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Software Project</p>
                                                 </>
                                             )}
                                         </div>
@@ -272,56 +253,56 @@ const Works = () => {
 
                                     {/* Status / Research Pill */}
                                     {project.isResearch && (
-                                        <div className="absolute top-3 left-3 bg-purple-600 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                                        <div className="absolute top-2.5 left-2.5 bg-purple-50 text-purple-700 dark:bg-purple-950/80 dark:text-purple-300 border border-purple-200 dark:border-purple-500/30 text-[10px] font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1.5 shadow-sm">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400" />
                                             {project.status}
                                         </div>
                                     )}
                                 </div>
 
-                                <div className="p-6">
-                                    <div className="flex flex-wrap gap-1.5 mb-3">
+                                <div className="p-4 pt-4">
+                                    <div className="flex flex-wrap gap-1.5 mb-2.5">
                                         {project.tech.map(t => (
-                                            <span key={t} className="text-[10px] font-bold uppercase tracking-wider text-purple-700 dark:text-purple-300 px-2.5 py-1 bg-purple-50 dark:bg-purple-950/50 rounded-lg border border-purple-200/60 dark:border-purple-500/30">
+                                            <span key={t} className="text-[11px] font-medium text-purple-800 dark:text-purple-200 px-2 py-0.5 bg-purple-50 dark:bg-purple-950/40 rounded-md border border-purple-200/50 dark:border-purple-500/20">
                                                 {t}
                                             </span>
                                         ))}
                                     </div>
                                     
-                                    <h3 className="text-xl sm:text-2xl font-bold font-sans text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
                                         {project.title}
                                     </h3>
                                     
-                                    <p className="mt-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed line-clamp-3">
+                                    <p className="mt-1.5 text-slate-600 dark:text-slate-300 text-sm leading-relaxed line-clamp-2">
                                         {project.description}
                                     </p>
 
-                                    <div className="mt-6 flex items-center justify-between pt-4 border-t border-purple-100/60 dark:border-purple-500/15">
-                                        <div className="flex gap-3">
+                                    <div className="mt-4 flex items-center justify-between pt-3 border-t border-purple-100 dark:border-purple-500/15">
+                                        <div className="flex gap-2">
                                             <a href={project.github} target="_blank" rel="noopener noreferrer"
                                                 aria-label={`${project.title} GitHub`}
-                                                className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-50 dark:bg-purple-950/40 text-slate-700 dark:text-purple-200 transition-all hover:bg-purple-600 hover:text-white hover:scale-105 border border-purple-200/50 dark:border-purple-500/30">
-                                                <Github size={18} />
+                                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-50/70 dark:bg-purple-950/40 text-slate-600 dark:text-slate-300 transition-colors hover:bg-purple-600 hover:text-white border border-purple-200/50 dark:border-purple-500/20">
+                                                <Github size={15} />
                                             </a>
                                             {project.link && (
                                                 <a href={project.link} target="_blank" rel="noopener noreferrer"
                                                     aria-label={`${project.title} Live Preview`}
-                                                    className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-50 dark:bg-purple-950/40 text-slate-700 dark:text-purple-200 transition-all hover:bg-violet-600 hover:text-white hover:scale-105 border border-purple-200/50 dark:border-purple-500/30">
-                                                    <ExternalLink size={18} />
+                                                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-50/70 dark:bg-purple-950/40 text-slate-600 dark:text-slate-300 transition-colors hover:bg-purple-600 hover:text-white border border-purple-200/50 dark:border-purple-500/20">
+                                                    <ExternalLink size={15} />
                                                 </a>
                                             )}
                                         </div>
                                         {hasImages && (
                                             <button
                                                 onClick={() => setActiveModal(project)}
-                                                className="text-xs font-bold uppercase tracking-widest text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors"
+                                                className="text-xs font-medium text-purple-700 dark:text-purple-300 hover:underline"
                                             >
                                                 View Demo →
                                             </button>
                                         )}
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         );
                     })}
                 </div>

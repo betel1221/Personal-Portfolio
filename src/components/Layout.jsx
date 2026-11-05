@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 
 const Layout = ({ children }) => {
     return (
-        <div className="relative min-h-screen bg-white dark:bg-[#090614] font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
+        <div className="relative min-h-screen bg-[#faf9fd] dark:bg-[#0b0914] font-sans text-slate-800 dark:text-slate-100 transition-colors duration-200">
             {/* Background Mesh */}
-            <div className="fixed inset-0 z-0 animated-mesh opacity-50 dark:opacity-35 pointer-events-none" />
+            <div className="fixed inset-0 z-0 animated-mesh opacity-70 dark:opacity-30 pointer-events-none" />
 
             <Header />
             <motion.main
